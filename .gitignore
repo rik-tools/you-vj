@@ -1,0 +1,8 @@
+
+var
+dist
+.idea
+node_modules
+.directory
+credentials.json
+token.json
