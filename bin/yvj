@@ -1,0 +1,7 @@
+#!/bin/bash
+##
+# $ bin/yvj
+##
+
+source path node
+npx tsx "${0/bin?yvj/src/Main.ts}" "$@"

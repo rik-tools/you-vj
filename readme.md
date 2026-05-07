@@ -1,8 +1,8 @@
 
 
 
-# You VJ
-You VJ is a program for manipulating YouTube playlists. &nbsp;It supports a workflow for reorganising the videos that comprise a playlist. &nbsp;So the playlists can be conveniently reordered and renamed. &nbsp;(The documents, below, are still a work in progress.)
+# You DJ
+You DJ is a program for manipulating YouTube playlists. &nbsp;It supports a workflow for reorganising the videos that comprise a playlist. &nbsp;So the playlists can be conveniently reordered and renamed. &nbsp;The latest [release](https://github.com/rik-tools/you-vj/releases/latest) is available. &nbsp;(The documents, below, are still a work in progress.)
 
 
 ## Operation
