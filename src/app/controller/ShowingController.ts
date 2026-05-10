@@ -1,17 +1,16 @@
 
-import {Auth}          from 'googleapis';
-import PlaylistGateway   from '../../port/outbound/PlaylistGateway.ts';
-import PlaylistConsole   from '../../port/outbound/PlaylistConsole.ts';
-import oauth2Client      from '../../adapter/outbound/OAuth2Client.ts'
-import ytPlaylistAdapter from '../../adapter/outbound/YTPlaylistAdapter.ts';
-import consolePlaylistAdapter from '../../adapter/outbound/ConsolePlaylistAdapter.ts';
-import showPlaylists from '../service/ShowingService.ts';
+import Paths                  from '../../type/config/Paths.ts';
+import OAuth2Client           from '../../type/config/OAuth2Client.ts';
+import PlaylistGateway        from '../../port/outbound/PlaylistGateway.ts';
+import PlaylistConsole        from '../../port/outbound/PlaylistConsole.ts';
+import oauth2Client           from '../../adapter/outbound/oauth2/Client.ts'
+import ytPlaylistAdapter      from '../../adapter/outbound/YTPlaylistAdapter.ts';
+import clPlaylistAdapter from '../../adapter/outbound/CLPlaylistAdapter.ts';
+import showPlaylists          from '../service/ShowingService.ts';
 
-type OAuth2Client = Auth.OAuth2Client;
-
-export default async function controlShowing (): Promise <void> {
-    const client: OAuth2Client = await oauth2Client ();
+export default async function controlShowing (paths: Paths): Promise <void> {
+    const client: OAuth2Client = await oauth2Client (paths.credsPath, paths.tokenPath);
     const playlistGateway: PlaylistGateway = await ytPlaylistAdapter (client);
-    const playlistConsole: PlaylistConsole = consolePlaylistAdapter ();
+    const playlistConsole: PlaylistConsole = clPlaylistAdapter ();
     await showPlaylists (playlistGateway, playlistConsole);
 }

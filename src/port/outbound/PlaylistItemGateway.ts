@@ -1,6 +1,8 @@
 
-import PlaylistItem from '../../domain/PlaylistItem.ts';
+import PlaylistItem from '../../type/domain/PlaylistItem.ts';
 
-export default interface PlaylistItemGateway {
+type PlaylistItemGateway = {
     playlistItems (): Promise <PlaylistItem []>;
 }
+
+export default PlaylistItemGateway;

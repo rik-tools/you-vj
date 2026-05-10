@@ -23,13 +23,13 @@ The user copies-pastes the relevant playlist id from the preceding call; the app
 ```bash
 bin/yvj ingest <playlist-id>
 ```
-Using the SQLite CLI, we view the data persisted in the previous call.  The user can then arrange the video ids into the desired sequence for the final call.
+Using the SQLite CLI, we view the data persisted in the previous call(s).  The user can then arrange the video ids into the desired sequence for the final call.
 ```bash
 sqlite3 var/yvj.db "select * from playlist_item"
 ```
-The selection can be refined with `egrep` (because SQLite's `where ... like ...` may not be as flexible as desired).
+The selection can be refined with `egrep` (because SQLite's where-like may not be as flexible as desired).
 ```bash
-sqlite3 var/yvj.db "select * from playlist_item" | egrep Frank.Zappa
+sqlite3 var/yvj.db "select * from playlist_item" | egrep Mahavishnu
 ```
 The user chooses a fresh or existing name for the playlist and organises the video ids into the desired order.
 ```bash

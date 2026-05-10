@@ -1,4 +1,6 @@
 
-export default interface PlaylistSyncGateway {
+type PlaylistSyncGateway = {
     carryPlaylist (): Promise <void>;
 }
+
+export default PlaylistSyncGateway;

@@ -1,6 +1,8 @@
 
-import PlaylistItem from '../../domain/PlaylistItem.ts';
+import PlaylistItem from '../../type/domain/PlaylistItem.ts';
 
-export default interface PlaylistItemRepository {
+type PlaylistItemRepository = {
     upsertPlaylistItems (playlistItems: PlaylistItem []): Promise <void>;
 }
+
+export default PlaylistItemRepository;

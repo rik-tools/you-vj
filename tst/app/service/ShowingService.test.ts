@@ -1,8 +1,8 @@
 
 import {describe, it, expect, vi} from 'vitest';
-import PlaylistGateway   from '../../../src/port/outbound/PlaylistGateway.ts';
-import PlaylistConsole   from '../../../src/port/outbound/PlaylistConsole.ts';
-import showPlaylists from '../../../src/app/service/ShowingService.ts';
+import showPlaylists   from '../../../src/app/service/ShowingService.ts';
+import PlaylistGateway from '../../../src/port/outbound/PlaylistGateway.ts';
+import PlaylistConsole from '../../../src/port/outbound/PlaylistConsole.ts';
 
 const mockPlaylistGateway: PlaylistGateway = {
     playlists: vi.fn ().mockResolvedValue ([
@@ -16,7 +16,7 @@ const mockPlaylistConsole: PlaylistConsole = {
 };
 
 describe ('showPlaylists', () => {
-    it ('calls playlistGateway.playlists and playlistConsole.printPlaylists', async () => {
+    it ('calls playlistGateway and playlistConsole', async () => {
         await showPlaylists (mockPlaylistGateway, mockPlaylistConsole);
         expect (mockPlaylistGateway.playlists).toHaveBeenCalledWith ();
         expect (mockPlaylistConsole.printPlaylists).toHaveBeenCalledWith ([

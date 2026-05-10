@@ -1,4 +1,4 @@
-[Rik Tools](https://github.com/rik-tools): [You VJ](../readme.md)
+[Rik Routine](https://github.com/rik-routine): [Chyt](../readme.md)
 
 
 
@@ -7,6 +7,10 @@ Builder preserves the development workflow or, for now, is a dumping place for v
 
 
 ## Calls
+Principally,
+```bash
+clear; npx tsc && npm test && bin/yvj show-playlists
+```
 These were not all used and the repetition makes me feel that there is a more-direct way of doing this.
 ```bash
 source path node

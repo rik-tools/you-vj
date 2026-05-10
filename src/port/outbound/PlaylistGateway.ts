@@ -1,6 +1,8 @@
 
-import PlaylistIdentity from '../../domain/PlaylistIdentity.ts';
+import PlaylistIdentity from '../../type/domain/PlaylistIdentity.ts';
 
-export default interface PlaylistGateway {
+type PlaylistGateway = {
     playlists (): Promise <PlaylistIdentity []>;
 }
+
+export default PlaylistGateway;

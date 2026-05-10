@@ -8,7 +8,7 @@ const mockGateway: PlaylistSyncGateway = {
 };
 
 describe ('carryPlaylist', () => {
-    it ('calls carryPlaylist', async () => {
+    it ('calls playlistSyncGateway', async () => {
         await persistPlaylistSync (mockGateway);
         expect (mockGateway.carryPlaylist).toHaveBeenCalled ();
     });

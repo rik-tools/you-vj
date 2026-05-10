@@ -1,6 +1,8 @@
 
-import PlaylistIdentity from '../../domain/PlaylistIdentity.ts';
+import PlaylistIdentity from '../../type/domain/PlaylistIdentity.ts';
 
-export default interface PlaylistConsole {
+type PlaylistConsole = {
     printPlaylists (playlistIdentities: PlaylistIdentity []): void;
 }
+
+export default PlaylistConsole;

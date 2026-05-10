@@ -1,6 +1,6 @@
 
 import {describe, it, expect, vi} from 'vitest';
-import PlaylistItem           from '../../../src/domain/PlaylistItem.ts';
+import PlaylistItem           from '../../../src/type/domain/PlaylistItem.ts';
 import PlaylistItemGateway    from '../../../src/port/outbound/PlaylistItemGateway.ts';
 import PlaylistItemRepository from '../../../src/port/outbound/PlaylistItemRepository.ts';
 import persistPlaylistItems   from '../../../src/app/service/IngestingService.ts';
@@ -17,7 +17,7 @@ const mockRepository: PlaylistItemRepository = {
 };
 
 describe ('persistPlaylistItems', () => {
-    it ('calls upsertPlaylistItems with items from the gateway', async () => {
+    it ('calls playlistItemGateway and playlistItemRepository', async () => {
         await persistPlaylistItems (mockGateway, mockRepository);
         expect (mockRepository.upsertPlaylistItems).toHaveBeenCalledWith ([
             {id: '1', videoId: 'v1', title: 'Track One', artist: 'Artist A', publishedAt: '2024-01-01'},

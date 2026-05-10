@@ -1,22 +1,20 @@
 
-import {Auth, google, youtube_v3} from 'googleapis';
-import PlaylistItemGateway        from '../../port/outbound/PlaylistItemGateway.ts';
-import PlaylistItem               from '../../domain/PlaylistItem.ts';
+import {google} from 'googleapis';
+import PlaylistItemGateway  from '../../port/outbound/PlaylistItemGateway.ts';
+import PlaylistItem         from '../../type/domain/PlaylistItem.ts';
+import OAuth2Client         from '../../type/config/OAuth2Client.ts';
+import {Youtube, YTPlaylistItem} from '../../type/config/YouTube.ts';
 
-type OAuth2Client = Auth.OAuth2Client;
-type Youtube = youtube_v3.Youtube;
-type Schema$PlaylistItem = youtube_v3.Schema$PlaylistItem;
-
-export default async function ytPlaylistItemAdapter (client: OAuth2Client, playlistName: string): Promise <PlaylistItemGateway> {
+export default async function ytPlaylistItemAdapter (client: OAuth2Client, playlistId: string): Promise <PlaylistItemGateway> {
     const youtube: Youtube = google.youtube ({version: 'v3', auth: client});
     async function playlistItems (): Promise <PlaylistItem []> {
         const response: any = await youtube.playlistItems.list ({
-            playlistId: playlistName,
+            playlistId: playlistId,
             part: ['snippet'],
             maxResults: 50
         });
-        const items: Schema$PlaylistItem [] = response.data.items?? [];
-        return items.map ((item: Schema$PlaylistItem) => {
+        const items: YTPlaylistItem [] = response.data.items?? [];
+        return items.map ((item: YTPlaylistItem) => {
             return {
                 id: item.id?? '',
                 videoId: item.snippet?.resourceId?.videoId?? '',

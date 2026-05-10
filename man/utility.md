@@ -7,11 +7,14 @@ Utility details the program interface.
 
 
 ## Prerequisites
-* Node
+* Node v24
 
 
 ## Installation
-For the time being, this needs to be run from within its project.
+For the time being, this needs to be run from within its project so
+```
+git clone http://github.com/rik-tools/you-vj.git
+```
 
 
 ## Configuration

@@ -4,7 +4,7 @@ import {open, Database} from 'sqlite';
 import fs from 'fs/promises';
 import path from 'path';
 import {fileURLToPath} from 'url';
-import {PlaylistItem} from '../src/domain/PlaylistItem.js';
+import {PlaylistItem} from '../src/type/domain/PlaylistItem.js';
 
 const __dirname: string = path.dirname (fileURLToPath (import.meta.url));
 const DB_PATH: string = path.join (__dirname, '../var/ytdj.db');

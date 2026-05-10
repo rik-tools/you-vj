@@ -1,3 +1,4 @@
+[Rik Tools](https://github.com/rik-tools): [You VJ](../readme.md)
 
 
 
@@ -12,7 +13,7 @@ v24.15.0
 you-vj$ npm --version
 11.12.1
 you-vj$ sqlite3 --version
-3.37.2 2022-01-06 13:25:41 872ba256cbf61d9290b571c0e6d82a20c224ca3ad82971edc46b29818d5dalt1
+3.37.2 2022-01-06 13:25:41
 ```
 
 
