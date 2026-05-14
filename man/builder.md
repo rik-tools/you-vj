@@ -11,6 +11,10 @@ Principally,
 ```bash
 clear; npx tsc && npm test && bin/yvj show-playlists
 ```
+For MSW,
+```bash
+npm install --save-dev msw
+```
 These were not all used and the repetition makes me feel that there is a more-direct way of doing this.
 ```bash
 source path node
@@ -88,7 +92,7 @@ ls src/ts/domain/
 npx tsc --noEmit
 ```
 ```bash
-npx tsx --type-check bin/ytdj.ts ingest ...
+npx tsx --type-check bin/yvj.ts ingest ...
 ```
 ```bash
 npx tsc

@@ -1,0 +1,15 @@
+#!/bin/bash
+##
+# $ dev/mine-artisan-ts-types
+##
+
+rg type\\b[^=]+= src --no-heading\
+ | sort\
+ | sed -r\
+       -e 's:^:| :'\
+       -e 's:/([A-Z]): | \1:'\
+       -e 's/.ts:/ | :/'\
+       -e 's/:(export )?type //'\
+       -e 's/=/|/'\
+       -e 's/;$/ |/'\
+       -e 's/\{$/{...} |/'

@@ -1,7 +1,7 @@
 
 import http from 'http';
 import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
-import OAuth2Client from '../../../../src/type/config/OAuth2Client.ts';
+import OAuth2Client from '../../../../src/port/outbound/OAuth2Client.ts';
 
 const {mockReadFile, mockGetToken, mockSetCredentials} = vi.hoisted (() => ({
     mockReadFile:       vi.fn (),

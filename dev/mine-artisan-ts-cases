@@ -1,0 +1,15 @@
+#!/bin/bash
+##
+# $ dev/mine-artisan-ts-cases
+##
+
+rg ^\\s\\s\\s\\sit\\s tst --no-heading\
+    | sort \
+    | sed -r\
+        -e 's:^:| :'\
+        -e 's:/([A-Z]): | \1:'\
+        -e 's/.ts:/ | :/'\
+        -e 's/:    //'\
+        -e "s/it \('/it /g"\
+        -e "s/'.+//"\
+        -e 's/$/ |/'

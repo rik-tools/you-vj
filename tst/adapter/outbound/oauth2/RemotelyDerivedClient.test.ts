@@ -1,6 +1,6 @@
 
 import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
-import OAuth2Client from '../../../../src/type/config/OAuth2Client.ts';
+import OAuth2Client from '../../../../src/port/outbound/OAuth2Client.ts';
 import remotelyDerivedClient from '../../../../src/adapter/outbound/oauth2/RemotelyDerivedClient.ts';
 
 const {mockGenerateAuthUrl, mockCallbackServer} = vi.hoisted (() => ({

@@ -1,0 +1,32 @@
+#!/bin/bash
+##
+# $ dev/mine-artisan-ts-functions
+##
+
+rg ^export.default.function src --no-heading\
+ | sort\
+ | sed -r\
+       -e 's:^:| :'\
+       -e 's:/([A-Z]): | \1:'\
+       -e 's/.ts:/ | :/'\
+       -e 's/:export default function //'\
+       -e 's/[a-z][a-zA-Z0-9]*: //g'\
+       -e 's/\(([a-zA-Z0-9]+)\)/\1/g'\
+       -e 's/ \(/ | (/'\
+       -e 's/: / => /'\
+       -e 's/ \{//'\
+       -e 's/$/ |/'
+
+rg ^export.default.async.function src --no-heading\
+ | sort\
+ | sed -r\
+       -e 's:^:| :'\
+       -e 's:/([A-Z]): | \1:'\
+       -e 's/.ts:/ | :/'\
+       -e 's/:export default async function //'\
+       -e 's/[a-z][a-zA-Z0-9]*: //g'\
+       -e 's/ \(/ | (/'\
+       -e 's/\(([a-zA-Z0-9]+)\)/\1/g'\
+       -e 's/: / => /'\
+       -e 's/ \{//'\
+       -e 's/$/ |/'

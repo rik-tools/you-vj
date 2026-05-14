@@ -1,7 +1,7 @@
 
 import {describe, it, expect, vi} from 'vitest';
 import PlaylistSyncGateway from '../../../src/port/outbound/PlaylistSyncGateway.ts';
-import persistPlaylistSync from '../../../src/app/service/EgestingService.ts';
+import serviceEgesting from '../../../src/app/service/EgestingService.ts';
 
 const mockGateway: PlaylistSyncGateway = {
     carryPlaylist: vi.fn ().mockResolvedValue (undefined)
@@ -9,7 +9,7 @@ const mockGateway: PlaylistSyncGateway = {
 
 describe ('carryPlaylist', () => {
     it ('calls playlistSyncGateway', async () => {
-        await persistPlaylistSync (mockGateway);
+        await serviceEgesting (mockGateway);
         expect (mockGateway.carryPlaylist).toHaveBeenCalled ();
     });
 });

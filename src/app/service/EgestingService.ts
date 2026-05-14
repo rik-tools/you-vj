@@ -1,6 +1,6 @@
 
 import PlaylistSyncGateway from '../../port/outbound/PlaylistSyncGateway.ts';
 
-export default async function persistPlaylistSync (gateway: PlaylistSyncGateway): Promise <void> {
+export default async function serviceEgesting (gateway: PlaylistSyncGateway): Promise <void> {
     await gateway.carryPlaylist ();
 }

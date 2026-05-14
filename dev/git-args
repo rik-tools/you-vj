@@ -1,0 +1,17 @@
+#!/bin/bash
+##
+# $ source dev/git-args
+##
+
+VSN=$(chyt show --current-version)
+MSG=$(chyt show --current-message)
+TTL=$(chyt show --current-title)
+NTS=$(chyt show --current-notes)
+export VSN MSG TTL NTS
+
+echo "
+VSN=$VSN
+MSG=$MSG
+TTL=$TTL
+NTS=$NTS
+"

@@ -1,0 +1,24 @@
+#!/bin/bash
+##
+# $ dev/mine-artisan-ts-consts
+##
+
+rg ^const src --no-heading\
+ | sort\
+ | sed -r\
+       -e 's:^:| :'\
+       -e 's:/([A-Z]): | \1:'\
+       -e 's/.ts:/ | :/'\
+       -e 's/:const //'\
+       -e 's/: / | /'\
+       -e 's/= .+$$/ |/'\
+
+rg ^const tst --no-heading\
+ | sort\
+ | sed -r\
+       -e 's:^:| :'\
+       -e 's:/([A-Z]): | \1:'\
+       -e 's/.ts:/ | :/'\
+       -e 's/:const //'\
+       -e 's/: / | /'\
+       -e 's/= .+$$/ |/'\

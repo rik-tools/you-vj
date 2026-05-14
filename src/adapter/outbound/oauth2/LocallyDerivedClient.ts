@@ -1,6 +1,6 @@
 
 import fs from 'fs/promises';
-import OAuth2Client from '../../../type/config/OAuth2Client.ts';
+import OAuth2Client from '../../../port/outbound/OAuth2Client.ts';
 
 export default async function locallyDerivedClient (client: OAuth2Client, tokenPath: string): Promise <OAuth2Client> {
     const token: string = await fs.readFile (tokenPath, 'utf8');

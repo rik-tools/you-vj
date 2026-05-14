@@ -2,7 +2,7 @@
 import {google} from 'googleapis';
 import PlaylistItemGateway  from '../../port/outbound/PlaylistItemGateway.ts';
 import PlaylistItem         from '../../type/domain/PlaylistItem.ts';
-import OAuth2Client         from '../../type/config/OAuth2Client.ts';
+import OAuth2Client         from '../../port/outbound/OAuth2Client.ts';
 import {Youtube, YTPlaylistItem} from '../../type/config/YouTube.ts';
 
 export default async function ytPlaylistItemAdapter (client: OAuth2Client, playlistId: string): Promise <PlaylistItemGateway> {

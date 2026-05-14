@@ -1,6 +1,6 @@
 
 import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
-import OAuth2Client from '../../../src/type/config/OAuth2Client.ts';
+import OAuth2Client from '../../../src/port/outbound/OAuth2Client.ts';
 import PlaylistItem from '../../../src/type/domain/PlaylistItem.ts';
 import PlaylistItemGateway from '../../../src/port/outbound/PlaylistItemGateway.ts';
 import ytPlaylistItemAdapter from '../../../src/adapter/outbound/YTPlaylistItemAdapter.ts';

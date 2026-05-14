@@ -1,7 +1,7 @@
 
 import {google} from 'googleapis';
 import {Youtube, YTPlaylistResponse, YTPlaylistItemResponse} from '../../type/config/YouTube.ts';
-import OAuth2Client                                          from '../../type/config/OAuth2Client.ts';
+import OAuth2Client                                          from '../../port/outbound/OAuth2Client.ts';
 import PlaylistSyncGateway                                   from '../../port/outbound/PlaylistSyncGateway.ts';
 
 export default async function ytPlaylistSyncAdapter (client: OAuth2Client, playlistName: string, videoIds: string []): Promise <PlaylistSyncGateway> {

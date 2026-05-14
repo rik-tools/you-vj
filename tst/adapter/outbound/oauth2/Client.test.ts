@@ -1,6 +1,6 @@
 
 import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
-import OAuth2Client from '../../../../src/type/config/OAuth2Client.ts';
+import OAuth2Client from '../../../../src/port/outbound/OAuth2Client.ts';
 
 const {mockCredentials, mockLocallyDerivedClient, mockRemotelyDerivedClient, mockOAuth2Constructor} = vi.hoisted (() => ({
     mockCredentials:            vi.fn (),
@@ -49,12 +49,9 @@ describe ('Client', () => {
     it ('exits when credentials file is not found', async () => {
         const error = Object.assign (new Error ('ENOENT'), {code: 'ENOENT'});
         mockCredentials.mockRejectedValue (error);
-        //const mockExit = vi.spyOn (process, 'exit').mockImplementation ((() => {}) as any);
-        const mockExit = vi.spyOn (process, 'exit').mockImplementation ((() => {throw new Error ('process.exit');}) as any);
-        //await oauth2Client ('/fake/creds.json', '/fake/token.json');
-        await expect (oauth2Client ('/fake/creds.json', '/fake/token.json')).rejects.toThrow ('process.exit');
-        //expect (mockExit).toHaveBeenCalledWith (1);
-        expect (mockExit).toHaveBeenCalledWith (1);
+        const mockExit = vi.spyOn (process, 'exit').mockImplementation ((() => {}) as any);
+        await oauth2Client ('/fake/creds.json', '/fake/token.json');
+        expect (mockExit).toHaveBeenCalledWith (5);
     });
 
 });

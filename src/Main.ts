@@ -4,13 +4,13 @@
  * $ yvj egest <playlist-name> [<video-id-0> ...]
  */
 
-import fs from 'fs/promises';
 import path from "path";
 import {fileURLToPath}  from "url";
 import Paths            from './type/config/Paths.ts';
 import controlShowing   from './app/controller/ShowingController.ts';
 import controlIngesting from './app/controller/IngestingController.ts';
 import controlEgesting  from './app/controller/EgestingController.ts';
+import {exit}           from './util/Exit.ts';
 
 const __dirname: string = path.dirname (fileURLToPath (import.meta.url));
 const DB_PATH: string = path.join (__dirname, '../var/yvj.db');
@@ -27,21 +27,14 @@ const paths: Paths = {
     dmlPath: DML_PATH
 };
 
-async function exit (code: number, message: string): Promise <void> {
-    const how: string = (await fs.readFile (process.argv [1], 'utf8')).split ('\n').slice (0, 5).join ('\n');
-    console.error (how);
-    console.error (message);
-    process.exit (code);
-}
-
 async function main (): Promise <void> {
     const [command, ... args] = process.argv.splice (2);
     switch (command) {
-        case undefined       : exit (1, `missing command`);
-        case 'show-playlists': await controlShowing (paths); break;
-        case 'ingest'        : args.length > 0? await controlIngesting (args [0], paths): exit (3, `missing playlist-name`); break;
-        case 'egest'         : args.length > 0? await controlEgesting  (args [0], args.slice (1), paths): exit (4, `missing playlist-name`); break;
-        default              : exit (2, `unknown command: ${command}`);
+        case undefined       : exit (1, process.argv [1], `missing command`);
+        case 'show-playlists': controlShowing (paths); break;
+        case 'ingest'        : args.length > 0? await controlIngesting (paths, args [0]): exit (3, process.argv [1], `missing playlist-id`); break;
+        case 'egest'         : args.length > 0? await controlEgesting  (paths, args [0], args.slice (1)): exit (4, process.argv [1], `missing playlist-name`); break;
+        default              : exit (2, process.argv [1], `unknown command: ${command}`);
     }
 }
 

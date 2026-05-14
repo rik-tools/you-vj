@@ -2,7 +2,7 @@
 import fs from 'fs/promises';
 import {google} from 'googleapis';
 import Secrets from '../../../type/config/Secrets.ts';
-import OAuth2Client from '../../../type/config/OAuth2Client.ts';
+import OAuth2Client from '../../../port/outbound/OAuth2Client.ts';
 import credentials from './Credentials.ts';
 import locallyDerivedClient from './LocallyDerivedClient.ts';
 import remotelyDerivedClient from './RemotelyDerivedClient.ts';
@@ -18,10 +18,12 @@ export default async function oauth2Client (credsPath: string, tokenPath: string
     }
     catch (error: any) {
         if (error.code === 'ENOENT') {
-            console.error ('Error: credentials.json not found.');
-            console.error ('Please download it from the Google Cloud Console (APIs & Services > Credentials).');
-            process.exit (1);
+            console.error ('[5] Download the credentials from the GCP: APIs and Services: Credentials!');
+            process.exit (5);
         }
-        throw error;
+        else {
+            console.error ('[6] An unknown error occurred:\n' + error.message);
+            process.exit (6);
+        }
     }
 }

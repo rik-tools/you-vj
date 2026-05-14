@@ -1,7 +1,7 @@
 
 import http from 'http';
 import fs from 'fs/promises';
-import OAuth2Client from '../../../type/config/OAuth2Client.ts';
+import OAuth2Client from '../../../port/outbound/OAuth2Client.ts';
 
 export default function requestListener (client: OAuth2Client, server: http.Server, resolve: (v: OAuth2Client) => void, reject: (e: any) => void, tokenPath: string): http.RequestListener {
     return async (request: http.IncomingMessage, response: http.ServerResponse): Promise <void> => {

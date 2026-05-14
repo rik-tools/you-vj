@@ -1,7 +1,7 @@
 
 import http from 'http';
 import open from 'open';
-import OAuth2Client from '../../../type/config/OAuth2Client.ts';
+import OAuth2Client from '../../../port/outbound/OAuth2Client.ts';
 import requestListener from './RequestListener.ts';
 
 type Promisable = (resolve: (value: OAuth2Client) => void, reject: (reason?: any) => void) => void;

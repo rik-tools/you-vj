@@ -1,3 +1,4 @@
+[Rik Tools](https://github.com/rik-tools): [You VJ](../readme.md)
 
 
 
@@ -7,15 +8,40 @@ Changes records the coding activity.
 
 ## Doing
 
+### 0.0.4 Product Initialisation
+This commit initialises the product.  The controllers are component-tested.
+* src/util/Exit.ts
+* src/adapter/outbound/DBPlaylistAdapter.ts
+* src/port/outbound/OAuth2Client.ts
+* tst/adapter/outbound/DBPlaylistAdapter.test.ts
+* tst/app/controller/EgestingController.test.ts
+* tst/app/controller/IngestingController.test.ts
+* tst/app/controller/ShowingController.test.ts
+* dev/mine-artisan-ts-types
+* dev/mine-artisan-ts-functions
+* dev/mine-artisan-ts-consts
+* dev/mine-artisan-ts-cases
+* dev/git-args
+
+
+## To Do
+
+### 0.0.5 ...
+This commit ...
+* ...
+
+
+## Done
+
 ### 0.0.3 Profile Initialisation
-This commit initialises the profile.  The non-OAuth2 adapters are integration-tested.
+This commit initialises the profile.  The adapters are integration-tested.
 * src/adapter/outbound/oauth2/Client.ts
 * src/adapter/outbound/oauth2/CallbackServer.ts
 * src/adapter/outbound/oauth2/Credentials.ts
 * src/adapter/outbound/oauth2/LocallyDerivedClient.ts
 * src/adapter/outbound/oauth2/RemotelyDerivedClient.ts
 * src/adapter/outbound/oauth2/RequestListener.ts
-* src/type/config/OAuth2Client.ts
+* src/port/outbound/OAuth2Client.ts
 * src/type/config/Secrets.ts
 * src/type/config/YouTube.ts
 * src/type/config/Paths.ts
@@ -30,20 +56,6 @@ This commit initialises the profile.  The non-OAuth2 adapters are integration-te
 * tst/adapter/outbound/oauth2/RemotelyDerivedClient.test.ts
 * tst/adapter/outbound/oauth2/CallbackServer.test.ts
 * tst/adapter/outbound/oauth2/RequestListener.test.ts
-
-
-## To Do
-
-### 0.0.4 Product Initialisation
-This commit initialises the product.  The controllers are component-tested.
-* ...
-
-### 0.0.5 ...
-This commit ...
-* ...
-
-
-## Done
 
 ### 0.0.2 Program Initialisation
 This commit initialises the program.  It provides the program, documents and some spikes.  The services are unit-tested.

@@ -1,5 +1,5 @@
 
-import OAuth2Client from '../../../type/config/OAuth2Client.ts';
+import OAuth2Client from '../../../port/outbound/OAuth2Client.ts';
 import callbackServer from './CallbackServer.ts'
 
 export default async function remotelyDerivedClient (client: OAuth2Client, tokenPath: string): Promise <OAuth2Client> {
